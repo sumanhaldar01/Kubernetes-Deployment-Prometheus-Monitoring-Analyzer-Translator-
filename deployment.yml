@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: analyzer-translator
+  labels:
+    app: analyzer-translator
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: analyzer-translator
+  template:
+    metadata:
+      labels:
+        app: analyzer-translator
+    spec:
+      containers:
+      - name: my-webapp
+        image: analyzer-translator:latest
+        imagePullPolicy: Never  
+        ports:
+        - containerPort: 80
+
